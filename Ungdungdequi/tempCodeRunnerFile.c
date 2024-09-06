@@ -1,0 +1,1 @@
+    if (x<a[mid]) binarysearch(a,l,mid-1,x); 
