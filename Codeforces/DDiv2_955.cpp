@@ -2,15 +2,15 @@
 using namespace std; 
 #define max_range 502
 #define rep(x,y,z) for((x) = y; (x) <= z; ++x)
-int a[max_range][max_range]; 
-int b[max_range][max_range]; 
-int pre[max_range][max_range]; 
-int m,n,k;  
+long long a[max_range][max_range]; 
+long long b[max_range][max_range]; 
+long long pre[max_range][max_range]; 
+long long m,n,k;  
 
 void inp() 
 {
     cin>>n>>m>>k; 
-    int i,j; 
+    long long i,j; 
     rep(i,1,n) 
         rep(j,1,m) cin>>a[i][j];  // nhập ma trận a
     rep(i,1,n) 
@@ -41,11 +41,11 @@ void inp()
         }
 }
 
-int num1(int x1, int y1, int x2, int y2)  
+long long num1(long long x1, long long y1, long long x2, long long y2)  
 {
     return (pre[x2][y2] - pre[x1-1][y2] - pre[x2][y1-1] + pre[x1-1][y1-1]); 
 }
-int ucln(int a, int b) 
+long long ucln(long long a, long long b) 
 {
     if (b == 0) return a; 
     else return ucln(b, a%b); 
@@ -53,10 +53,10 @@ int ucln(int a, int b)
 void solve() 
 {
     inp(); 
-    int diff = 0,i,j; 
+    long long diff = 0,i,j; 
     for (i = 1; i<=n; ++i) 
     {
-        int temp_diff = 0; 
+        long long temp_diff = 0; 
         for (j = 1; j<=m; ++j) {  // Fixes the loop over columns
             if (b[i][j] == 1) temp_diff += a[i][j]; 
             else temp_diff -= a[i][j]; 
@@ -66,12 +66,12 @@ void solve()
     if (diff == 0) {
         cout<<"yes"<<endl; return; 
     }
-    int g = 0; 
+    long long g = 0; 
     for (i = 1; i <= (n - k + 1); ++i) 
     {
         for (j = 1; j <= (m - k + 1); ++j) 
         {
-            int f = abs((k * k) - 2*num1(i,j,i+k-1,j+k-1));  //do chenh lech cua so 0 va so 1 
+            long long f = abs((k * k) - 2*num1(i,j,i+k-1,j+k-1));  //do chenh lech cua so 0 va so 1 
             if (f != 0)
             {
                 if (g == 0) g = f; 
@@ -84,6 +84,6 @@ void solve()
 }
 int main() 
 {
-    int t; cin>>t; 
+    long long t; cin>>t; 
     while (t--) solve(); 
 }
