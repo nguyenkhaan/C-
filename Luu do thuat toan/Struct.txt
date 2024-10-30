@@ -1,0 +1,38 @@
+STRUCT 
+1. Kiểu dữ liệu tự định nghĩa 
+- Kiểu dữ liệu tự định nghĩa bao gồm các phương thức (hàm), thuộc tính (biến...) 
+- KDL tự định nghĩa còn gọi là 1 bản thiết kế cho 1 đối tượng (blueprint) 
+- Đối tượng tạo ra gọi là Instance 
+2. Struct 
+- Tác dụng: Gộp các kiểu dũ liệu cũ -> kiểu dữ liệu mới -> tạo 1 bản in cho 1 đối tượng 
+- Cú pháp:
+struct ten_struct 
+{
+    //properties... (các biến) 
+    //method... (hàm) 
+}; 
+- Khai báo: <ten struct> <ten_instance>; 
+VD: Animal dog; 
+    Animal cat; 
+- Truy cập: thông qua toán tử . và qua instance 
+    <instance_name>..properties / method; 
+3. Constructor 
+- Là hàm được tự động chạy khi khởi tạo 1 instance 
+- Dùng để gán nhanh các phương thức và thuộc tính 
+ <ten_struct> (tham số) {}
+- VD: Nhanvien(string _a, string _b, string _c) 
+{
+    a = _a; 
+    b = _b; 
+    c = _c; 
+}
+- Constructor mặc định:  
+VD: Nhanvien() {}; 
+4. Từ khóa ngữ cảnh this 
+- Tham chiếu tới chính instance đang làm việc 
+*Toán tử -> và .
+    ->: tham chiếu tới thuộc tính, phương thức thông qua con trỏ trỏ tới instance đó ,
+    .: tham chiếu tới thuộc tính, phương thức thông qua instance đó 
+    VD: Animal dog; 
+    p là con trỏ trỏ tới dog, truy cập tới thuộc tính name trong dog thì dùng 
+    p->name hoặc dog.name đều được 
