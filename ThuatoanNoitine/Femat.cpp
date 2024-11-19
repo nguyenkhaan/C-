@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std; 
 #define MOD 17 
+//Chú ý: thuật toán này chỉ dùng khi gcd(a,b) = 1. Tổng quát hơn ta có thuật toán Euler 
 long long fema(int a, int b) 
 {
     long long result(1); 

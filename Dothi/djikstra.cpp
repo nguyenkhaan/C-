@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
 using ll = long long;
 #define int long long
 const int maxn = 200001;
@@ -34,7 +33,7 @@ void dijkstra(int s){
 		if(kc > d[u]) continue;
 		//Relaxtion : Thông qua đỉnh u đã biết khoảng cách ngắn nhất tính từ S, cập
 		//nhật khoảng cách với các đỉnh kề với u
-		for(auto it : adj[u]){
+		for(auto it : adj[u]) {
 			int v = it.first;
 			int w = it.second;
 			if(d[v] > d[u] + w){
