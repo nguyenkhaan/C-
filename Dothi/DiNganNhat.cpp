@@ -37,7 +37,7 @@ int bfs(int i, int j)
             if (i1>=1 && i1<=n && j1>=1 && j1<=m && a[i1][j1]!='x') {
                 q.push({i1,j1}); 
                 d[i1][j1] = d[v.first][v.second] + 1; 
-                if (a[i1][j1] == 'B') return d[i1][j1]; 
+                if (a[i1][j1] == 'B') return d[i1][j1]; //dat duoc toi vi tri dich 
             }
         }
     }

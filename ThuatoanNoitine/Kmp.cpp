@@ -9,7 +9,7 @@ vector<int> LPS(string s)
     lps[0] = 0; 
     while (i < s.size()) 
     {
-        if (s[i] == s[len]) {  //nếu cái mảng 
+        if (s[i] == s[len]) {  //nếu cái con trỏ bằng với cái độ dài thì tiến hành cập nhập độ dài 
             ++len; 
             lps[i] = len; 
             ++i;  
@@ -18,7 +18,8 @@ vector<int> LPS(string s)
         {
             if (len != 0) len = lps[len - 1]; 
             //ta tiến hành xem xét độ dài của tiền tố nằm phía trước 
-            //Cap nhat do dai cua tien to truoc do 
+            //Mình lấy độ dài len thành độ dài của đoạn nằm trước đó 
+            //Ta làm vậy để ta xem xét tiền tố có độ dài len phía trước lấy thêm phần tử i thỏa mãn không 
             else {
                 lps[i] = 0; 
                 ++i; 

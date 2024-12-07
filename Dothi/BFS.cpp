@@ -21,7 +21,7 @@ void bfs(int u)
     queue<long> q; 
     q.push(u); 
     cout<<u<<"   "; 
-    visited[u] = true; 
+    visited[u] = true; //danh dau cai dinh dau tien thoi 
     while (!q.empty()) {
         int v = q.front();  
         cout<<v<<"  "; 

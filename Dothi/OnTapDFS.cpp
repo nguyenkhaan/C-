@@ -1,43 +1,42 @@
 #include <bits/stdc++.h>
-// 9 9
-// 1 2
-// 1 3
-// 1 5
-// 2 4
-// 3 6
-// 3 7
-// 3 9
-// 5 8
-// 8 9
 using namespace std; 
-vector<int> a[1000]; 
-bool visited[1000]; 
+int m,n; 
+const int maxn = 1000; 
+set<int> adj[maxn]; 
 void inp() 
 {
-    int n,m; 
-    cin>>n>>m; 
-    for (int i = 1; i<=m; ++i) 
+    cin >> m >> n; 
+    for (int i = 0; i < m; ++i) 
     {
         int x,y; 
-        cin>>x>>y; 
-        a[x].push_back(y); 
-        a[y].push_back(x); 
+        cin >> x >> y; 
+        adj[x].insert(y); 
+        adj[y].insert(x); 
     }
 }
-void dfs(int u) 
+void euler(int u) 
 {
-    if (visited[u]) {
-        cout<<u<<"  "; 
-        visited[u] = false; //da duoc tham roi 
-    }
-    for (auto x:a[u]) 
+    stack<int> st; 
+    st.push(u); 
+    vector<int> ec; 
+    while (!st.empty()) 
     {
-        if (visited[x]) dfs(x); 
+        int v = st.top(); 
+        if (adj[v].size() > 0) 
+        {
+            int y = *adj[v].begin(); 
+            st.push(y); 
+            adj[v].erase(y); 
+        }
+        else {
+            ec.push_back(v); 
+            st.pop(); 
+        }
     }
+    for (auto x : ec) cout<<x<<" "; 
 }
 int main() 
 {
-    memset(visited,true,sizeof(visited)); 
     inp(); 
-    dfs(1); 
+    euler(1); 
 }

@@ -9,7 +9,7 @@ int sz, a[N];
 int dp[N][90][90][2];
 
 int go(int pos, int even, int odd, int flag){
-    if(pos > sz){
+    if(pos > sz) {
         return even - odd == 1;
     }
     if(dp[pos][even][odd][flag] != -1){

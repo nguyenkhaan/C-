@@ -1,31 +1,34 @@
 #include <bits/stdc++.h>
-using namespace std; 
-#pragma GCC optimize("O3") 
-#define goc cout<<"O"  
-#define hoanh cout<<"H" 
-#define endl cout<<"\n"
-#define tung cout<<"T" 
+using namespace std;
+const int maxn = 361;  
 void solve() 
 {
-    int x,y; 
-    cin >> x >> y; 
-    if (x*y == 0) 
+    int n; 
+    cin >> n; 
+    vector<int> a(n); 
+    for (auto &i : a) cin >> i; 
+    int deg[maxn]; 
+    memset(deg,0,sizeof(deg)); 
+    deg[0] = 1; 
+    deg[360] = 1; 
+    int d = 0; 
+    for (int i = 0; i < n; ++i) 
     {
-        if (x == 0 && y == 0) goc; 
-        if (x != 0 && y == 0) hoanh; 
-        if (x == 0 && y != 0) tung; 
-        endl; 
-        return; 
+        d += a[i]; 
+        if (d > 360) d = d % 360; 
+        deg[d] = 1; 
     }
-    if (x > 0 && y > 0) cout<<"I"; 
-    if (x < 0 && y > 0) cout<<"II"; 
-    if (x < 0 && y < 0) cout<<"III"; 
-    if (x > 0 && y < 0) cout<<"IV"; 
-    endl; 
+    vector<int> calc; 
+    for (int i = 0; i < maxn; ++i) 
+    {
+        if (deg[i] == 1) calc.push_back(i); 
+    }
+    int ans = 0; 
+    for (int i = 1; i < calc.size(); ++i) ans = max(ans,calc[i] - calc[i-1]); 
+    cout<<ans<<endl; 
+
 }
 int main() 
 {
-    int tc; 
-    cin >> tc; 
-    while (tc--) solve(); 
+    solve(); 
 }

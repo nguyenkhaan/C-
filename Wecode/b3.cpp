@@ -1,15 +1,56 @@
 #include <bits/stdc++.h>
-using namespace std; 
-#define         fast    ios::sync_with_stdio(false), cin.tie(0)
-void solve() 
-{
-    int n; 
-    cin >> n; 
-    double pi; 
-    for (int i = 0; i <= n; ++i) pi += ((pow(-1,i) / (2*i + 1))*1.0); 
-    cout<<4.0*pi; 
+
+using namespace std;
+string check = "";
+
+struct ngay {
+    int ng, thang, nam;
+};
+
+struct HOPSUA {
+    char brand[35];
+    double w;
+    ngay e;
+};
+
+typedef HOPSUA milk;
+
+void inputMilk(milk &x) {
+    cin >> x.w;
+    cin >> x.e.ng >> x.e.thang >> x.e.nam;
+    cin.ignore();
+    cin.getline(x.brand, 35);
 }
-int main() 
-{
-    solve(); 
+
+void nhapDSHopSua(milk a[], int &n) {
+    cin >> n;
+    for (int i = 0; i < n; ++i) inputMilk(a[i]);
+}
+
+bool maxMilk(milk a[], int n) {
+    double ma = 0;
+    for (int i = 0; i < n; ++i) {
+        if (ma < a[i].w) ma = a[i].w;
+    }
+
+    for (int i = 0; i < n; ++i) {
+        if (a[i].w == ma) {
+            string k = a[i].brand;
+            size_t pos = k.find_last_of(' '); 
+            string temp = (pos == string::npos) ? k : k.substr(pos + 1); 
+            if (temp == check) return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    HOPSUA a[100];
+    int n;
+    nhapDSHopSua(a, n); // Nhap danh sach cac hop sua
+    
+    cin >> check;
+    if (maxMilk(a, n)) cout << "YES";
+    else cout << "NO"; 
+    return 0;
 }

@@ -1,7 +1,5 @@
-#include <stdio.h> 
-#include <iostream>
+
 #include <bits/stdc++.h>
-#include <math.h>
 using namespace std; 
 #define MAX 10000
 int n; 

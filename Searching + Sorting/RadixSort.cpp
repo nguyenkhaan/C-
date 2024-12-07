@@ -18,7 +18,7 @@ int main()
     {
         while (a.size() > 0) 
         {
-            int num = a[a.size() - 1]; 
+            int num = a[a.size() - 1];  //khong can phan biet thu tu 
             a.pop_back(); 
             int digit = (num / exp) % 10; 
             bucket[digit].push_back(num); 

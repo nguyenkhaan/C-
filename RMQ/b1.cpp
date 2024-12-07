@@ -16,7 +16,7 @@ int n,a[maxn],f[maxn][21];
 int main()
 {
     cin>>n; 
-    for (int i = 1; i<=n; i++) cin>>a[i], f[i][0] = a[i]; //Dau phay tuong duong hai lenh lien ke nhau 
+    for (int i = 1; i <= n; i++) cin>>a[i], f[i][0] = a[i]; //Dau phay tuong duong hai lenh lien ke nhau 
     for (int j = 1; (1<<j)<=n; j++) 
     {
         for (int i = 1; i + (1<<j-1)<=n; i++) //Phai co -1 thi no moi dung 

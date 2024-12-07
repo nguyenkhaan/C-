@@ -5,20 +5,20 @@ using namespace std;
 int f[16][16][2025][2][10]; 
 int dp(int inx, int len, int sum , int flag, int last, string &x) 
 {
-    if (inx == x.size()) 
+    if (inx == x.size())  //van mau 
     {
         return sum; 
     }
-    if (f[inx][len][sum][flag][last] != -1) 
+    if (f[inx][len][sum][flag][last] != -1)   //van mau 
     {
         return f[inx][len][sum][flag][last]; 
     }
     int up_bound = 9; 
     if (!flag) up_bound = x[inx] - '0'; 
     int ans = 0; 
-    for (int j = 0; j <= up_bound; ++j) 
+    for (int j = 0; j <= up_bound; ++j) //dung de quan ly chu so 
     {
-        int _last = j; 
+        int _last = j;  //quan li chu so cuoi cung truoc do 
         int _len; 
         int _sum; 
         if (last == _last) 
@@ -31,9 +31,9 @@ int dp(int inx, int len, int sum , int flag, int last, string &x)
             _len = 1; 
             _sum = sum + _last*_len*_len; 
         }
-        ans += dp(inx + 1, _len , _sum , j < up_bound || flag , _last, x); 
+        ans += dp(inx + 1, _len , _sum , j < up_bound || flag , _last, x); //van mau 
     }
-    return f[inx][len][sum][flag][last] =  ans, ans; 
+    return f[inx][len][sum][flag][last] =  ans, ans; //van mau 
 }
 int calc(string x) 
 {
@@ -49,5 +49,4 @@ signed main()
         string _r = to_string(r); 
         string _l = to_string(l - 1); 
         cout<<calc(_r) - calc(_l); 
-    
 }

@@ -6,8 +6,9 @@ int main() {
     auto start = std::chrono::high_resolution_clock::now();
 
     // Vòng lặp cần đo thời gian chạy
-    cout<<"Hello World"<<endl;
-
+    //1tr lan lap -> thoi gian -> thoi gian / 1tr -> thoi gian 1 vong lap chay 
+    for (int i = 1; i <= 100000000; ++i) continue; 
+    
     // Kết thúc đếm thời gian
     auto end = std::chrono::high_resolution_clock::now();
 
